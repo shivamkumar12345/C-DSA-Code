@@ -27,6 +27,7 @@ class Car {
     // copy constructor
     Car( Car& obj){
         cout<<"costructor4\n"; 
+       
         name = obj.name;
         Model = obj.Model;
         color = obj.color;
@@ -51,7 +52,7 @@ int main(){
     obj2.print();
     // cout<<obj2.name<<" "<<obj2.color<<" "<<obj2.Model<<endl;
 
-    Car obj3(obj1);
+    Car obj3(obj2);
     obj3.name = "Maruti";
     obj3.print();
     obj1.print();
