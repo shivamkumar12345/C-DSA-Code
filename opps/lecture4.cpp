@@ -19,20 +19,26 @@ class Complex {
         real += c.real;
         imaginary += c.imaginary;
     }
-    ostream operator<< (ostream &os, Complex &c){
-        cout<<c.real<<" "<<c.imaginary<<" ";
-        return os;
+    void operator *= (Complex c){
+        int temp =  real* c.real - imaginary * c.imaginary;
+        imaginary = (real* c.imaginary) + (imaginary* c.real);
+        real =temp;
     }
+    // ostream operator<< (ostream &os, Complex &c){
+    //     cout<<c.real<<" "<<c.imaginary<<" ";
+    //     return os;
+    // }
 };
 int main(){
     Complex c1(2,3);
     Complex c2(5,-2);
     // c1.add(c2); 
     // c1+=c2;
+    c1*= c2;
     c1.print();
     c2.print();
     
-    cout<<c1;
+    // cout<<c1;
     
     return 0;
     
