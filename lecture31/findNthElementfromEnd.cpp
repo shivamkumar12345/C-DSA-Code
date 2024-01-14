@@ -1,0 +1,67 @@
+#include<iostream>
+using namespace std;
+class Node{
+    public:
+    int data;
+    Node* next;
+    Node(int val){
+        data =val;
+        next= NULL;
+    }
+
+};
+void printLL(Node* head){
+    if(head==NULL)return;
+    cout<<head->data<<" ";
+    printLL(head->next);
+}
+void insertAtFront(Node* &head, int val){
+    Node* newNode = new Node(val);
+    if(head ==NULL){
+        head= newNode;
+        return;
+    }
+    newNode->next = head;
+    head = newNode;
+    return;
+}
+void insertAtMid(Node* &head, int pos, int val){
+    Node* newNode = new Node(val);
+    if(head ==NULL || pos==0){
+       insertAtFront(head,val);
+       return;
+    }
+    Node* runningPtr = head;
+    while(runningPtr->next !=NULL && --pos){
+        runningPtr = runningPtr->next;
+    } 
+    newNode->next = runningPtr->next;
+    runningPtr->next = newNode;
+    return;
+}
+
+Node* NthElementFromEnd(Node* &head,int k){
+    Node* s= head, *f= head;
+    while(f!=NULL && k--){
+        f= f->next;
+    }
+    while(f!=NULL){
+        f= f->next; s= s->next;
+    }
+    return s;
+}
+
+
+int main(){
+    Node * head = NULL;
+    insertAtFront(head, 1);
+    insertAtFront(head, 2);
+    insertAtFront(head, 3);
+    insertAtFront(head, 4);
+    insertAtFront(head, 5);
+    insertAtFront(head, 6);
+    insertAtFront(head, 7);
+    printLL(head);
+    Node* NthNode =  NthElementFromEnd(head, 4);
+    cout<<"Node at kth "<< NthNode->data<<" ";
+}
