@@ -65,26 +65,26 @@ Node* merge(Node* h1, Node* h2){
 void mergeSort(Node* &head){
     if(head ==NULL || head->next == NULL)return;
     Node* mid = MidOfLL(head);
-    Node* List2 = mid->next;
+    Node* head2 = mid->next;
     mid->next = NULL;
     mergeSort(head);
-    mergeSort(List2);
+    mergeSort(head2);
 
-    head =merge(head, List2);
+    head =merge(head, head2);
 }
 int main(){
     Node * head = NULL;
     Node* h1=NULL;
     Node* h2=NULL;
     Node* h=new Node(0);
-    insertAtFront(h1, 1);
-    insertAtFront(h1, 3);
-    insertAtFront(h1, 5);
+    insertAtFront(h2, 1);
+    insertAtFront(h2, 3);
+    insertAtFront(h2, 5);
     insertAtFront(h2, 6);
     insertAtFront(h2, 2);
     insertAtFront(h2, 4);
     insertAtFront(h2, 7);
-    // printLL(head);
+    printLL(h2);
     // Node * m =  MidOfLL(head);
     // cout<<"mid Node "<< m->data<<" ";
     // Node * temp=merge(h1,h2);
