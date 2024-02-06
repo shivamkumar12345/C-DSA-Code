@@ -2,6 +2,8 @@
 #include<vector>
 #include<stack>
 using namespace std;
+
+
 int main(){
     vector<int>v(10),prevSmall(10,-1);
     int n =10;

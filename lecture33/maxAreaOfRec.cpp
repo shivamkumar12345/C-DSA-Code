@@ -41,13 +41,13 @@ int main(){
     prevSmallest(rect,n,prevSmall);
     nextSmallest(rect,n,nextSmall);
 
-    for(int i=0;i<n;i++){
-        cout<<prevSmall[i]<<" ";
-    }
-    cout<<endl;
-    for(int i=0;i<n;i++){
-        cout<<nextSmall[i]<<" ";
-    }
+    // for(int i=0;i<n;i++){
+    //     cout<<prevSmall[i]<<" ";
+    // }
+    // cout<<endl;
+    // for(int i=0;i<n;i++){
+    //     cout<<nextSmall[i]<<" ";
+    // }
     int max_area =0, curr_Area=0;
     for(int i=0;i<n;i++){
         int l= prevSmall[i] == -1? 0 : prevSmall[i] +1;
