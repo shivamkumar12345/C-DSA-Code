@@ -39,13 +39,14 @@ int diameter(TreeNode * root){
     return max(max(ld,rd),curr_dia);
 
 }
-int optimiseDiameter(TreeNode * root, int &diameter){
+int optimiseDiameter(TreeNode * root, int &max_diameter){
     if(root==NULL){
         return 0;
     }
-    int left = optimiseDiameter(root->left, diameter);
-    int right = optimiseDiameter(root->right, diameter);
-    diameter = max(diameter, left + right);
+    int left = optimiseDiameter(root->left, max_diameter);
+    int right = optimiseDiameter(root->right, max_diameter);
+    int curr_dia = left + right;
+    max_diameter = max(max_diameter, curr_dia);
     return max(left , right) +1;
 }
 int main(){
